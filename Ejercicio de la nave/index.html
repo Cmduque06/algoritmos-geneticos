@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aterrizaje por generaciones</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="panel panel-left">
+      <h1>Información de la nave</h1>
+      <p class="muted">
+      </p>
+
+      <div class="button-group">
+        <button id="startBtn" type="button">Iniciar</button>
+        <button id="pauseBtn" type="button">Pausar</button>
+        <button id="newRunBtn" type="button">Generar</button>
+      </div>
+      <div class="button-group">
+        <button id="speed1Btn" class="speed-btn active" type="button">x1</button>
+        <button id="speed4Btn" class="speed-btn" type="button">x4</button>
+        <button id="speed16Btn" class="speed-btn" type="button">x16</button>
+      </div>
+
+      <div id="stats" class="stats"></div>
+
+      <h2>Historial de generaciones</h2>
+      <pre id="history" class="code-block">[]</pre>
+    </section>
+
+    <section class="panel panel-right">
+      <h2>Simulación de la nave</h2>
+      <canvas id="world" width="560" height="420" aria-label="Simulación de aterrizaje"></canvas>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

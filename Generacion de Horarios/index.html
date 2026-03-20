@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generador de Horarios con Algoritmo Genético</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Generación automática de horarios</h1>
+
+    <section class="card">
+      <h2>Datos de grupos</h2>
+      <div class="table-wrap">
+        <table id="groups-table">
+          <thead>
+            <tr>
+              <th>Materia</th><th>Grupo</th><th>Créditos</th><th>Docente</th><th>Días</th><th>Hora</th><th>Salón</th><th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <form id="group-form" class="form-grid">
+        <input id="materia" placeholder="Materia" required />
+        <input id="grupo" placeholder="Grupo" required />
+        <input id="creditos" type="number" min="1" placeholder="Créditos" required />
+        <input id="docente" placeholder="Docente" required />
+
+        <div class="days-picker">
+          <span>Días</span>
+          <label><input type="checkbox" name="dias" value="Lunes" />L</label>
+          <label><input type="checkbox" name="dias" value="Martes" />M</label>
+          <label><input type="checkbox" name="dias" value="Miércoles" />X</label>
+          <label><input type="checkbox" name="dias" value="Jueves" />J</label>
+          <label><input type="checkbox" name="dias" value="Viernes" />V</label>
+          <label><input type="checkbox" name="dias" value="Sábado" />S</label>
+          <label><input type="checkbox" name="dias" value="Domingo" />D</label>
+        </div>
+
+        <input id="horaInicio" type="number" min="6" max="22" placeholder="Hora inicio (6-22)" required />
+        <input id="horaFin" type="number" min="7" max="23" placeholder="Hora fin (7-23)" required />
+        <input id="salon" placeholder="Salón" required />
+        <button type="submit">Agregar grupo</button>
+      </form>
+
+      <div class="pagination-controls">
+        <button id="prev-page" type="button">← Página anterior</button>
+        <span id="page-info">Página 1</span>
+        <button id="next-page" type="button">Página siguiente →</button>
+      </div>
+
+      <div class="actions">
+        <button id="seed-demo" type="button">Cargar ejemplo</button>
+        <button id="run-ga" type="button">Generar horario</button>
+      </div>
+      <p id="status"></p>
+    
+    </section>
+    
+<section class="card">
+      <h2>Preferencias</h2>
+      <div class="form-grid prefs-grid">
+        <label>Jornada
+          <select id="jornada">
+            <option value="any">No importa</option>
+            <option value="morning">Solo mañana (6-12)</option>
+            <option value="afternoon">Solo tarde (14-22)</option>
+          </select>
+        </label>
+
+        <label>Créditos máximos a matricular
+          <input id="maxCredits" type="number" min="1" value="12" />
+        </label>
+
+        <label>Máximo de materias (opcional)
+          <input id="maxSubjects" type="number" min="1" placeholder="Ej: 5" />
+        </label>
+      </div>
+
+      <div class="checklist">
+        <span>Días opcionales:</span>
+        <label><input id="allowSaturday" type="checkbox" /> Sábado</label>
+        <label><input id="allowSunday" type="checkbox" /> Domingo</label>
+      </div>
+    </section>
+    <section class="card">
+      <h2>Evolución por generaciones</h2>
+      <div class="generation-tools">
+        <label>Ver generación:
+          <select id="generation-select"></select>
+        </label>
+      </div>
+      <div id="generation-log" class="log-box"></div>
+    </section>
+
+    <section class="card">
+      <h2>Horario semanal (Lunes a Domingo, 6:00 a 23:00)</h2>
+      <div id="best-summary"></div>
+      <div id="schedule"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

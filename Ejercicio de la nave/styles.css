@@ -1,0 +1,112 @@
+:root {
+  --bg: #070d19;
+  --panel: #0f1a30;
+  --panel-alt: #152747;
+  --text: #dbeafe;
+  --muted: #93a3ba;
+  --accent: #22d3ee;
+  --ok: #22c55e;
+  --bad: #f43f5e;
+  --warn: #f59e0b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.app {
+  width: min(1120px, 95vw);
+  margin: 1rem auto;
+  display: grid;
+  grid-template-columns: 0.95fr 1.2fr;
+  gap: 1rem;
+}
+
+.panel {
+  background: linear-gradient(180deg, var(--panel), var(--panel-alt));
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+}
+
+.panel-left { min-height: 420px; }
+
+h1, h2 { margin-top: 0; }
+h1 { font-size: 1.25rem; }
+h2 { color: var(--accent); font-size: 1.08rem; }
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0.75rem 0;
+}
+
+button {
+  background: #0e7490;
+  color: #ecfeff;
+  border-radius: 9px;
+  padding: 0.48rem 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover { filter: brightness(1.08); }
+#pauseBtn { background: #c2410c; }
+#newRunBtn { background: #7c3aed; }
+.speed-btn { background: #1d4ed8; }
+.speed-btn.active { background: #16a34a; }
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.45rem;
+}
+
+.stat {
+  background: #081021;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 0.42rem 0.52rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.value { font-weight: 700; }
+.ok { color: var(--ok); }
+.bad { color: var(--bad); }
+.warn { color: var(--warn); }
+
+canvas {
+  width: 100%;
+  height: auto;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  background: #010612;
+}
+
+.code-block {
+  margin: 0;
+  background: #050b17;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 0.7rem;
+  white-space: pre-wrap;
+  max-height: 220px;
+  overflow: auto;
+  font-size: 0.84rem;
+}
+
+.muted { color: var(--muted); }
+
+@media (max-width: 900px) {
+  .app { grid-template-columns: 1fr; }
+}
